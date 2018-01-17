@@ -1,0 +1,83 @@
+$topbar-height: 0px;
+$topbar-link-padding: $topbar-height / 7;
+$presentation-content-height: rem-calc(500);
+
+li.login {
+	list-style-type:none;
+}
+
+$sub-nav-bg-color: #fff;
+$sub-nav-font-color: #333;
+$sub-nav-height: 60px;
+$sub-nav-border-color: #ddd;
+
+$sub-nav-link-hover-bg-color: $sub-nav-bg-color;
+$sub-nav-link-hover-font-color: #000;
+$sub-nav-link-hover-border-color: $sub-nav-border-color;
+
+$sub-nav-link-active-bg-color: $sub-nav-bg-color;
+$sub-nav-link-active-font-color: black;
+$sub-nav-link-active-border-color: $sub-nav-border-color;
+$sub-nav-link-active-hover-bg-color: $sub-nav-link-active-bg-color;
+$sub-nav-link-active-hover-font-color: $sub-nav-link-active-font-color;
+$sub-nav-link-active-hover-border-color: $sub-nav-link-active-border-color;
+
+.top-landing-bar {
+  @include top-nav($sub-nav-bg-color, $sub-nav-font-color, $sub-nav-height, false,
+	  $sub-nav-link-active-bg-color, $sub-nav-link-active-font-color);
+
+  .top-bar-section {
+	.has-form {
+	  padding: 0px 20px;
+	}
+	li:not(.has-form) a:not(.button) {
+	  padding: 0 15px;
+	}
+  }
+
+  .button {
+	padding-top: 0.3rem !important;
+  }
+}
+
+.title-image {
+		height: 28px !important;
+		margin-left: 15px;
+}
+
+.user-nav-menu {
+	> a {
+		margin-right: 25px;
+	}
+
+	> a::after {
+		margin-right: 30px !important;
+	}
+}
+
+
+.pros-sections {
+	min-height: 0 !important;
+}
+
+#presentation {
+
+	padding-top: $topbar-height - 45 !important;
+	background-color:$main-bg;
+
+	.pros-section-container {
+		padding: 0 !important;
+	}
+}
+
+.main-button {
+	$padding: rem-calc(5);
+	@include button($padding, #5cb85c, 2px, false, false, false);
+	width: 200px;
+}
+
+.main-img {
+	height: 300px !important;
+	max-width: 645px !important;
+	margin-left: -150px !important;
+}

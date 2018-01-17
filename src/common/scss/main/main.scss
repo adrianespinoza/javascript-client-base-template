@@ -1,0 +1,504 @@
+$main-bg:#f6f6f6;
+
+/* PROS colors */
+
+$pros-dark-blue:#00447C;
+ $pros-lite-blue:#00a8e2;
+ $pros-lite-lite-blue:#dcecec;
+ $pros-super-lite-blue:#eff7fa;
+ $pros-green:#43b635;
+ $pros-orange:#EE8A27;
+
+/*global tile settings being used elsewhere*/
+
+ $tile-base-bg:#cccccc;
+ $tile-bg:lighten($tile-base-bg, 10%);
+ $tile-color:darken($tile-base-bg, 25%);
+ $tile-color-hover:darken($tile-color, 25%);
+ $gbl-lite-bg:#fff;
+@mixin box-shadow($top, $left, $blur, $color) {
+  -webkit-box-shadow: $top $left $blur $color;
+  -moz-box-shadow: $top $left $blur $color;
+  box-shadow: $top $left $blur $color;
+}
+
+body {
+  background-color: $main-bg;
+  padding-bottom: 30px;
+  margin: 0;
+}
+.main-app-content {
+  border: 1px solid #dcdcdc;
+  background: #ffffff;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  padding: 1px;
+  position: relative;
+  min-height: 600px;
+}
+.content-box {
+  @include border-radius(3px);
+  border: 1px solid $tile-base-bg;
+  background-color: $gbl-lite-bg;
+  height: 100%;
+}
+.content-pad {
+  height: 45px;
+}
+.title-anchor {
+  letter-spacing: 1px;
+  font-weight: 600 !important;
+}
+.top-banner {
+  padding: 25px;
+}
+.horizontal-list {
+  padding: 0px !important;
+  margin: 0px !important;
+  font-size: 1em;
+  li {
+    display: inline !important;
+    list-style-type: none;
+    padding-right: 10px;
+  }
+}
+.warning {
+  background: #F69A41;
+}
+.text-inset {
+  color: rgba(86, 86, 86, 0.8);
+  text-shadow: 0px 2px 3px #f6f6f6, 0px 0px 0px #000, 0px 2px 3px #f6f6f6;
+}
+//TODO: THIS WAS MOVED TO PROS-UTILS COMMON FUNCTIONALITY
+//@mixin button-mixin($bgColor, $txtColor, $borderColor, $shadowColor, $hoverFill) {
+//  background-color: $bgColor !important;
+//  color: $txtColor !important;
+//  border: 1px solid $borderColor;
+//  padding-top: .45rem !important;
+//  padding-bottom: .35rem !important;
+//  @include box-shadow(0px, 1px, 1px, $shadowColor);
+//  &:hover {
+//    background-color: $hoverFill !important;
+//    @include box-shadow(0px, 1px, 1px, darken($shadowColor, 5%));
+//    border: 1px solid darken($borderColor, 10%);
+//  }
+//}
+//TODO: THIS WAS MOVED TO PROS-UTILS COMMON FUNCTIONALITY
+//.ghost {
+//  @include button-mixin(#fff, #333, #BFBFBF, #DEDEDE, #fff);
+//}
+//.greeny {
+//  @include button-mixin(#43B02A, #fff, #209305, #209305, #3EA327);
+//}
+
+@mixin button-mixin-pros1($bgColor, $txtColor, $borderColor, $shadowColor, $hoverFill, $txtWeight) {
+  background-color: $bgColor !important;
+  color: $txtColor !important;
+  border: 1px solid $borderColor;
+  padding-top: .45rem !important;
+  padding-bottom: .35rem !important;
+  font-weight: $txtWeight !important;
+  @include box-shadow(0px, 1px, 1px, $shadowColor);
+}
+
+@mixin button-mixin-pros2($bgColor, $txtColor, $borderColor, $shadowColor, $hoverFill, $txtWeight) {
+  @include button-mixin-pros1($bgColor, $txtColor, $borderColor, $shadowColor, $hoverFill, $txtWeight);
+  &:hover {
+    background-color: $hoverFill !important;
+    @include box-shadow(0px, 1px, 1px, darken($shadowColor, 5%));
+    border: 1px solid darken($borderColor, 10%);
+  }
+}
+.ux-ghost {
+  @include button-mixin-pros1(#ffffff, #444444, #ffffff, #ffffff, #ffffff, 600);
+}
+.ux-greeny {
+  @include button-mixin-pros2(#43B02A, #fff, #209305, #209305, #3EA327, 600);
+}
+
+.ux-label-input {
+  float: left;
+  margin: 0 20px 0 0;
+  line-height: 29px;
+  font-size: 12px;
+  color: #717171;
+}
+.ux-select-box {
+  width: auto;
+  font-size: 12px;
+  font-family: "Open Sans";
+  color: #444444;
+  padding: 0 5px;
+  height: 30px;
+  border-radius: 3px;
+  border: 1px solid #bfbfbf;
+  margin: 0px;
+  @include box-shadow(0px, 1px, 1px, darken(#bfbfbf, 5%));
+}
+
+.fa-6 {
+  font-size: 20em;
+}
+.padd-top-sm {
+  margin-top: 5px;
+}
+.login-pad {
+  padding: 10px 0px 10px 0px;
+}
+.login-error-container {
+  height: 27px;
+  margin-bottom: 5px;
+  margin-top: -1px;
+}
+@mixin dd-arrow($direction:"down", $color:#000) {
+  display: block;
+  top: 50%;
+  right: 0;
+  width: 0;
+  height: 0;
+  border: 5px;
+  border-style: solid;
+  margin-left: 5px;
+  margin-top: 10px;
+  @if $direction=="up" {
+    border-color: transparent transparent $color transparent;
+  }
+  @else if $direction=="left" {
+    border-color: transparent $color transparent transparent;
+  }
+  @else if $direction=="right" {
+    border-color: transparent transparent transparent $color;
+  }
+  @else {
+    border-color: $color transparent transparent transparent;
+  }
+}
+.arrow-up {
+  @include dd-arrow($direction: "up");
+}
+.arrow-down {
+  @include dd-arrow($direction: "down");
+}
+.arrow-right {
+  @include dd-arrow($direction: "right");
+}
+.arrow-left {
+  @include dd-arrow($direction: "left");
+}
+.warning {
+  background: #F69A41;
+}
+.back-next {
+  padding-top: 20px;
+}
+
+.top-main-nav-container {
+  height: 60px;
+}
+
+.top-bar-section ul {
+  background: none !important;
+  li {
+    background: white !important;
+  }
+}
+
+.reveal-modal {
+  z-index: 100 !important;
+}
+.reveal-modal-bg {
+  color: #F6F6F6;
+}
+.xp-max-width-200 {
+  max-width: 200px;
+}
+.xp-char-limit {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.row {
+  max-width: 1200px; // override standard row-width;
+}
+
+.unsupported-container {
+  height: 60px;
+}
+
+.unsupported-content {
+  width: 100%;
+}
+.unsupported-info {
+  padding: 32px;
+  text-align: center
+}
+
+.pagination-container .pagination-button-container a.pagination-button {
+  padding: 5px 10px 5px 10px !important;
+  height: inherit;
+  width: inherit;
+}
+
+.pros-section-content {
+  > p {
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+}
+.no-allowed {
+  cursor: not-allowed !important;
+}
+
+.top-bar-section ul li > a.help-icon-container {
+  font-size: 24px;
+}
+
+.generic-view-header-container {
+  padding: 0 !important;
+  bottom: -1px;
+  .generic-header {
+    padding-top: 35px;
+    padding-left: 20px;
+    padding-bottom: 30px;
+    color: $tile-color-hover;
+    border-bottom: 1px solid $tile-base-bg;
+    .generic-header-text {
+      font-family: "Open Sans";
+      font-size: 22px;
+      color: #444444;
+      font-weight: 400;
+      margin: 0;
+    }
+  }
+}
+table thead, table tfoot {
+  background: #ffffff;
+}
+table tr.even, table tr.alt, table tr:nth-of-type(even) {
+  background: #ffffff;
+}
+
+table tbody tr td, table tr td, table tfoot tr td {
+  height: 60px;
+  padding-top: 20px;
+  padding-left: 20px;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+table tbody tr {
+  &:hover {
+    background: #EBF8FD;
+  }
+}
+
+.default-pointer {
+  cursor: default !important;
+}
+
+.generic-search-input-container {
+  position: relative;
+  float: right;
+  .generic-search-input {
+    height: 30px;
+    width: 250px;
+    font-style: italic;
+    font-size: 12px;
+    color: #444444;
+    padding-left: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  i.ion-android-search {
+    position: absolute;
+    top: 4px;
+    left: 10px;
+  }
+}
+
+.page-search-header {
+  border-bottom: 1px solid #CCCCCC;
+  padding: 0;
+  .page-search-title {
+    font-size: 22px;
+    color: #444444;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+  }
+
+  .page-search-input-container {
+    padding-top: 27px;
+    padding-bottom: 22px;
+    padding-right: 20px;
+  }
+
+  .page-search-text-container {
+    padding-top: 35px;
+    padding-bottom: 0;
+    font-size: 12px;
+    input[type="checkbox"] {
+      position: relative;
+      top: 2px;
+    }
+  }
+}
+
+a.generic-link {
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-weight: 400;
+  color: #00A9E0 !important;
+  &:hover {
+    font-size: 12px;
+    font-weight: 400;
+    color: #00A9E0 !important;
+    text-decoration: underline;
+  }
+}
+
+.columns.end,
+.column.end {
+  float: right !important;
+}
+
+.dialog-popup .dialog-footer .dialog-button-container .dialog-ok-button {
+  padding: 5px 15px;
+}
+
+.section-title {
+  font-weight: bold;
+  padding: 0.3rem 1.5625rem 0.3rem 1rem;
+  font-size: 1.2em;;
+}
+
+.inline-element {
+  display: inline-block;
+  float: left;
+}
+
+// Changing select2 styles
+.select2-results li {
+  padding-right: 10px !important;
+}
+
+.select2-results .select2-highlighted {
+  background: #00A9E0 !important;
+  color: #FFF;
+}
+
+.select2-container .select2-choice .select2-arrow b {
+  background-image: url(/images/select2.png) !important;
+}
+
+
+.select2-container {
+  z-index: 20 !important;
+  .select2-choice {
+    background: #FFF !important;
+  }
+}
+.select2-container .select2-choice .select2-arrow {
+  border-left: 0 !important;
+  background: #FFF !important;
+}
+
+.select2-container .select2-choice {
+  border-radius: 0 !important;
+  span.select2-chosen {
+    text-align: left;
+  }
+}
+
+#select2-drop-mask {
+  z-index: 20;
+}
+
+.select2-drop.select2-with-searchbox.select2-drop-active {
+  z-index: 21;
+  .select2-search {
+    z-index: 22;
+  }
+}
+
+.select2-drop-active {
+  border-top: 1px solid #5897fb !important;
+}
+
+.ui-icon, .ui-widget-content .ui-icon, .ui-widget-header .ui-icon {
+  background-image: url(/images/ui-icons_222222_256x240.png) !important;
+}
+
+.select2-container .select2-choice abbr {
+  background: url(/images/select2.png) right top no-repeat !important;
+  top: 6px !important;
+}
+
+.select2-drop {
+  width: auto !important;
+}
+
+/*COMMON CSS*/
+
+$max-body-width: 1200px;
+$min-body-width: 1024px;
+
+@mixin button-mixin($bgColor, $txtColor, $borderColor, $shadowColor, $hoverFill) {
+  background-color: $bgColor !important;
+  color: $txtColor !important;
+  border: 1px solid $borderColor !important;
+  padding-top: .45rem !important;
+  padding-bottom: .35rem !important;
+  @include box-shadow(0px, 1px, 1px, $shadowColor);
+  &:hover {
+    background-color: $hoverFill !important;
+    @include box-shadow(0px, 1px, 1px, darken($shadowColor, 5%));
+    border: 1px solid darken($borderColor, 10%) !important;
+  }
+}
+.ghost-dashboard {
+  @include button-mixin(#ECECEC, #333, #BFBFBF, #111111, #FFF);
+}
+.ghost {
+  @include button-mixin(#fff, #333, #BFBFBF, #DEDEDE, #fff);
+}
+.greeny {
+  @include button-mixin(#43B02A, #fff, #209305, #209305, #3EA327);
+}
+
+.fluid-1200 {
+  @media only screen and (min-width: 1201px) {
+    max-width: $max-body-width !important;
+  }
+  @media only screen and (max-width: 1200px) {
+    &:not(.data-extracts-fixed-header-table){
+      max-width: 95% !important;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
+    &:not(.top-bar):not(.top-sub-bar):not(.top-landing-bar):not(.breadcrumbs) {
+      min-width: $min-body-width !important;
+    }
+  }
+  margin: auto;
+}
+
+.contain-to-grid {
+  a.image-anchor {
+    background: url(/images/pros-white-logo.png) no-repeat;
+    display: block;
+    width: 70px;
+    margin-top: 8px;
+  }
+  &.landing-page-top-nav-container{
+    background: #FFF;
+    a.image-anchor {
+      background: url(/images/pros-color-logo.png) no-repeat;
+    }
+  }
+}
+/*COMMON CSS*/

@@ -1,0 +1,46 @@
+@import "foundation/functions";
+
+$table-border-size: 0px;
+$tile-base-bg: #CCCCCC;
+
+// PROS Pallet color
+$pros-super-dark-blue: #002855;
+$pros-navy-blue: #00386B;
+$pros-dark-blue: #00447C;
+$pros-lite-blue: #00a8e2;
+$pros-lite-lite-blue: #dcecec;
+$pros-super-lite-blue: #eff7fa;
+$pros-sky-blue:#ebf8fd;
+
+$pros-green: #43b635;
+$pros-orange: #EE8A27;
+$pros-turquoise: #00a3e6;
+$pros-lite-lite-grey: #fEfEfE;
+$pros-lite-grey: #f7f7f7;
+$pros-grey: #CCCCCC;
+$pros-black: #444;
+$pros-medium-black: #666;
+$pros-lite-black: #888;
+
+//
+// TOP BAR
+//
+$topbar-bg-color: $pros-super-dark-blue;
+$topbar-height: rem-calc(60);
+$topbar-link-bg-hover: scale-color($topbar-bg-color, $lightness: -14%);
+
+//
+// ALERT BOXES
+//
+$alert-padding-opposite-direction: 0.5rem;
+
+//
+// IONICONS
+//
+$ionicons-font-path: "fonts";
+
+//
+// DEFAULT LINK STYLES
+//
+$anchor-font-color: #00A9E0;
+$anchor-font-color-hover: none;

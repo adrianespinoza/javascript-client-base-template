@@ -1,0 +1,123 @@
+ $tile-base-bg: #cccccc;
+ $tile-bg:lighten($tile-base-bg, 10%);
+ $tile-color:darken($tile-base-bg, 3%);
+ $tile-color-hover:darken($tile-color, 25%);
+ $gbl-lite-bg:#fff;
+
+@mixin clearfix {
+  display: inline-block;
+  &:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  display: block;
+}
+
+
+div.tiles {
+  .tile-header {
+    padding-top: 35px;
+    padding-left: 20px;
+    padding-bottom: 30px;
+    color: $tile-color-hover;
+    border-bottom: 1px solid $tile-base-bg;
+    h3 {
+      font-family: "Open Sans";
+      font-size: 22px;
+      color: #444444;
+      font-weight: 400;
+      margin: 0;
+    }
+  }
+
+}
+
+.tile-box:first-child{
+  padding: 0 50px 20px 50px;
+}
+
+.tile-box:last-child{
+  padding: 0 50px 20px 50px;
+}
+
+.tile-box-container {
+  padding-top: 40px;
+}
+
+.tile-box {
+
+  padding: 0 50px 20px 50px;
+
+  .tile-content {
+
+    @include border-radius(3px);
+    background-color: white;
+    color: $tile-color !important;
+    margin: 0 auto;
+    width: 100%;
+    vertical-align: middle;
+    border: 1px solid $tile-color;
+
+    &:hover {
+      @include box-shadow(1px, 1px, 1px, lighten($tile-color, 35%));
+      background-color: #F7F7F7;
+      color: $tile-color-hover !important;
+    }
+
+    > a {
+     @include clearfix;
+     padding: 30px 20px 20px 30px;
+     color: $tile-color !important;
+     &:hover {
+       color: $tile-color-hover !important;
+     }
+    }
+
+    .tile-title {
+      font-weight: 400 !important;
+      margin-bottom: 10px;
+      color: #444444;
+      font-size: 18px;
+    }
+
+    .tile-desc {
+      font-size: 14px;
+      color: #717171;
+      line-height: 1.5em;
+    }
+  }
+
+  .iconify {
+      text-align: center;
+      margin-right: 15px;
+      i {
+        position: absolute;
+        top: -15px;
+        color: #717171;
+        font-size: 65px;
+    }
+  }
+
+  .btn-space-89f01 {
+    margin-bottom: 5px;
+    margin-right: 5px;
+  }
+
+  .col-clearfix {
+    padding-left: 20px;
+    padding-bottom: 20px;
+    margin: 0 !important;
+    @include clearfix;
+
+    > a {
+      @include clearfix;
+      display: inline-block !important;
+    }
+
+  }
+
+}

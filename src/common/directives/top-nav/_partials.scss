@@ -1,0 +1,169 @@
+$sub-nav-bg-color: white;
+$sub-nav-font-color: #7C7C7C;
+$sub-nav-height: 47px;
+$sub-nav-border-color: #FFF;
+
+$sub-nav-link-hover-bg-color: $sub-nav-bg-color;
+$sub-nav-link-hover-font-color: black;
+$sub-nav-link-hover-border-color: $sub-nav-border-color;
+$sub-nav-link-active-inner-border-color: #eef2f5;
+
+$sub-nav-link-active-bg-color: $sub-nav-bg-color;
+$sub-nav-link-active-font-color: black;
+$sub-nav-link-active-border-color: $sub-nav-border-color;
+$sub-nav-link-active-hover-bg-color: $sub-nav-link-active-bg-color;
+$sub-nav-link-active-hover-font-color: $sub-nav-link-active-font-color;
+$sub-nav-link-active-hover-border-color: $sub-nav-link-active-border-color;
+
+@mixin top-nav-border($border-color, $bottom:false, $top:false) {
+  @if $border-color{
+    @if $bottom {
+      border-bottom: 1px solid $border-color;
+    }
+
+    @if $top {
+      border-top: 1px solid $border-color;
+    }
+  }
+}
+
+@mixin top-nav-link($background:false, $font-color:false, $border-color:false, $font-weight:false) {
+  @if $background {
+    background: $background;
+  }
+
+  @if $font-color {
+    color: $font-color;
+  }
+
+  @if $font-weight {
+    font-weight: $font-weight;
+  }
+
+  @include top-nav-border($border-color, true);
+}
+
+@mixin top-bar-links-override(
+  $bg-color, $font-color, $hover-bg-color, $hover-font-color:false, $hover-border-color:false) {
+
+  .top-bar-section li {
+    &.hover {
+      > a:not(.button) {
+        @include top-nav-link(
+                $hover-bg-color, $hover-font-color,
+                $hover-border-color);
+      }
+    }
+    &:not(.has-form) {
+      a:not(.button) {
+        @include top-nav-link($bg-color, $font-color);
+        &:hover {
+          @include top-nav-link(
+                  $hover-bg-color, $hover-font-color,
+                  $hover-border-color);
+        }
+      }
+    }
+  }
+}
+
+@mixin top-bar-active-links-override(
+  $bg-color, $font-color, $hover-bg-color, $hover-font-color:false, $border-color:false) {
+
+  .top-bar-section li:not(.has-form) {
+    &.active  > a {
+      @include top-nav-link(
+              $bg-color, $font-color,
+              $border-color);
+
+      &:hover {
+        @include top-nav-link(
+                $hover-bg-color, $font-color,
+                $border-color);
+      }
+    }
+  }
+}
+
+@mixin top-bar-divider-override($height, $border-bottom, $border-top) {
+  .top-bar-section {
+    & > ul > .divider,
+    & > ul > [role="separator"] {
+      @if $height {
+        height: $height;
+      }
+
+      @if $border-bottom {
+        border-#{$opposite-direction}: $border-bottom;
+      }
+    }
+
+    @if $border-top {
+      .divider,
+      [role="separator"] {
+        border-top: $border-top;
+      }
+    }
+  }
+}
+
+@mixin top-nav($bg-color, $font-color, $height, $border-color, $active-bg-color, $active-font-color) {
+  $hover-bg-color: scale-color($bg-color, $lightness: -14%);
+  $active-hover-bg-color: scale-color($active-bg-color, $lightness: -14%);
+  $divider-border-top: solid 1px  scale-color($bg-color, $lightness: -13%);
+  $divider-border-bottom: solid 1px  scale-color($bg-color, $lightness: -13%);
+  $link-height-offset: 0px;
+  @if $border-color {
+    $link-height-offset: 1px;
+  }
+  @extend .top-bar;
+
+  height: $height;
+  line-height: $height;
+  background: $bg-color;
+  @include top-nav-border($border-color, true);
+
+  .name {
+    height: $height;
+    display: table-cell;
+    vertical-align: middle;
+    h1 {
+      line-height: $height;
+      a {
+        color: $font-color;
+        padding: 0 $height / 3;
+      }
+    }
+  }
+
+  .top-bar-section {
+    .has-form {
+      background: $bg-color;
+      padding: 8px $height / 3;
+      height: $height;
+      @include top-nav-border($border-color, true);
+    }
+
+    .has-dropdown {
+      & > a:after {
+        @include css-triangle($topbar-dropdown-toggle-size, rgba($font-color, $topbar-dropdown-toggle-alpha), top);
+        top: $height / 2;
+      }
+    }
+
+    & li {
+      a {
+        position: relative;
+        @include top-nav-border($border-color, true);
+      }
+
+      &:not(.has-form) a:not(.button) {
+        line-height: $height - $link-height-offset;
+      }
+    }
+  }
+
+  @include top-bar-links-override($bg-color, $font-color, $hover-bg-color);
+  @include top-bar-active-links-override($active-bg-color, $active-font-color, $active-hover-bg-color);
+  @include top-bar-divider-override($height, $divider-border-bottom, $divider-border-top);
+}

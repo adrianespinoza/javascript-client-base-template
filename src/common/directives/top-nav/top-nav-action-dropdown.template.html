@@ -1,0 +1,7 @@
+﻿<li class="has-dropdown {{ navAction.customClass }} top-nav-hover-dropdown" ng-click="onActionClick()" ng-class="{ active: isActive(navAction) }" >
+    <a href="{{ navAction.href }}">
+        <i class="fi-{{ navAction.icon }}" ></i>
+        {{ navAction.text }}
+    </a>
+    <top-nav-action-list is-hover="{{ isHover }}" is-nested="true" nav-actions="navAction.actions"></top-nav-action-list>
+</li>

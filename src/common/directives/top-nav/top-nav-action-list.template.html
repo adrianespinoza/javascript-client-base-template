@@ -1,0 +1,3 @@
+<ul class="{{ position }}" ng-class="{ 'top-nav-dropdown': isNested === 'true', 'hover-dropdown': isHover === 'true' }" >
+    <top-nav-action is-first=$first is-hover="{{ isHover }}" ng-repeat="action in navActions | filter:{visible:true}" nav-action="action" ></top-nav-action>
+</ul>

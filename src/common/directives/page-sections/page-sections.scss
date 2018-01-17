@@ -1,0 +1,26 @@
+.pros-section div.pros-section-container {
+  padding-top: $section-vertical-padding;
+  padding-bottom: $section-vertical-padding/2;
+}
+
+.pros-section-content {
+  padding-top: $section-vertical-padding/2;
+} 
+
+.pros-sections{
+  min-height: 1500px;
+  .main {
+    background-color: #00386B;
+    color:#FFF;
+  }
+
+  .basic {
+    background-color: #00A1E8;
+    color:#FFF;
+  }
+
+  .odd {
+    background-color: #FFFFFF;
+    color:#000;
+  }
+}

@@ -1,0 +1,5 @@
+$tile-base-bg: #cccccc;
+$tile-bg:lighten($tile-base-bg, 10%);
+$tile-color:darken($tile-base-bg, 3%);
+$tile-color-hover:darken($tile-color, 25%);
+$gbl-lite-bg:#fff;

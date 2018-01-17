@@ -1,0 +1,6 @@
+<li class="{{ navAction.customClass }}" ng-class="{ 'first-top-nav-action':isFirst, active: isActive(navAction)}" ng-click="onActionClick($event)">
+  <a>
+    <i class="fi-{{ navAction.icon }}"></i>
+    {{ navAction.text }}
+  </a>
+</li>

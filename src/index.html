@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="icon" href="images/favicon.ico">
+  <meta name="description" content="">
+  <!-- build:css styles/app.css -->
+  <!-- injector:css -->
+  <!-- endinjector -->
+  <!-- endbuild -->
+</head>
+
+<body onload="checkSupportedBrowser()" ng-app="cidApp">
+  <div growl></div>
+  <div ui-view="header" autoscroll="false"></div>
+
+  <div ui-view="content" autoscroll="false">
+  </div>
+
+  <pros-footer></pros-footer>
+
+  <!-- build:js js/helper.js -->
+  <script src="common/js-helper.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:js js/vendor.js -->
+  <!-- bower:js -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js js/scripts.js -->
+  <script src="modules/app.js"></script>
+
+  <!-- injector:ng-constants -->
+  <!-- endinjector -->
+
+  <!-- injector:ng-enums -->
+  <!-- endinjector -->
+
+  <!-- injector:ng-module -->
+  <!-- endinjector -->
+
+  <!-- injector:ng-constants -->
+  <!-- endinjector -->
+
+  <!-- injector:ng-filters -->
+  <!-- endinjector -->
+
+  <!-- injector:ng-services -->
+  <!-- endinjector -->
+  
+  <!-- injector:ng-provider -->
+  <!-- endinjector -->
+
+  <!-- injector:ng-directives -->
+  <!-- endinjector -->
+
+  <!-- injector:ng-controllers -->
+  <!-- endinjector -->
+  <!-- endbuild -->
+
+  <!-- build:js js/app.config.js -->
+  <!-- injector:ng-config -->
+  <script src="app.config.js"></script>
+  <!-- endinjector -->
+  <!-- endbuild -->
+
+</body>
+
+</html>

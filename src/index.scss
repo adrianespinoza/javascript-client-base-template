@@ -1,0 +1,24 @@
+/* global import of PROS recommended font style */
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,700");
+ $body-font-family:'Open Sans', sans-serif;
+
+/*imports*/
+
+@import "common/scss/settings";
+@import "common/scss/foundicons";
+@import "common/scss/font-awesome";
+@import "bower-components/ionicons/scss/ionicons.scss";
+@import "foundation";
+@import "compass/css3";
+
+/* injector:scss */
+@import "modules/landing-page/base";
+@import "modules/main-dashboard/base";
+@import "common/directives/page-sections/base";
+@import "common/directives/tiled-dashboard/base";
+@import "common/directives/top-nav/base";
+@import "common/scss/main/base";
+/* endinjector */

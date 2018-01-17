@@ -1,0 +1,25 @@
+<nav class="{{ cssClass }}" >
+  <ul class="title-area">
+    <li class="name" ng-if="hasImage">
+      <a class="image-anchor" du-smooth-scroll du-scrollspy offset="45" href="{{ imageHref }}">
+        <img class="title-image" alt="">
+      </a>
+    </li>
+    <li class="name"  ng-if="appTitle">
+      <h1>
+        <a class="title-anchor" du-smooth-scroll du-scrollspy offset="45" href="{{ titleHref }}">
+          {{appTitle}}
+        </a>
+      </h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="">Menu</a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <top-nav-action-list is-hover="{{ isHover }}" position="right" nav-actions="navActions.right"></top-nav-action-list>
+
+    <!-- Left Nav Section -->
+    <top-nav-action-list is-hover="{{ isHover }}" position="left" nav-actions="navActions.left"></top-nav-action-list>
+  </section>
+</nav>

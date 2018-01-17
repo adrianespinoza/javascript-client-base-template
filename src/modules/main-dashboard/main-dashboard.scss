@@ -1,0 +1,47 @@
+
+/*****************************
+*   
+* Custom SCSS
+*
+******************************/
+
+div.notes {
+
+  color: $tile-color-hover;
+
+  .note-divider {
+    border: 0;
+    height: 1px;
+    background: $tile-color;
+    width: 100%;
+    float: none; 
+    position: relative;
+  }
+  
+  .note-header {
+    padding: 20px;
+  }
+
+  .note-tile {
+    border-top: 1px solid $tile-base-bg;
+    padding: 20px 10px 20px 10px;
+    font-size: 75%;
+
+    .note-title {
+      padding-bottom: 10px;
+    }
+  }
+
+  .note-info {
+    border-left: 3px solid #5cb85c;
+  }
+
+  .note-warn {
+    border-left: 3px solid #f0ad4e;
+  }
+
+  .note-error {
+    border-left: 3px solid #d9534f;
+  }
+
+}
